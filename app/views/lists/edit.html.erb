@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "Volver al inicio", home_path %>
+      <%= form_with model: @list do |f| %>
+        <%= f.label "Nuevo nombre:" %>
+        <%= f.text_field :name %>
+        <%= f.submit "Actualizar Lista" %>
+      <% end %>
+    </div>
+  </div>
+</div>

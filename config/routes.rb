@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home", as: :home
 
-  get "lists", to: "pages#index"
-  get "lists/new", to: "pages#new", as: :new
-  post "lists", to: "pages#create"
-  get "lists/:id", to: "pages#show", as: :list
-  get "lists/:id/edit", to: "pages#edit"
+  get "lists", to: "lists#index", as: :index
+  get "lists/new", to: "lists#new", as: :new
+  post "lists", to: "lists#create"
+  get "lists/:id", to: "lists#show", as: :list
+  get "lists/:id/edit", to: "lists#edit", as: :edit
+  patch "lists/:id", to: "lists#update"
 end

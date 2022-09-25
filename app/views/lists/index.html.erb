@@ -4,7 +4,7 @@
     <%= link_to "Volver al inicio", home_path %>
       <ul>
         <% @lists.each do |list| %>
-          <li><%= list.name %></li>
+          <li><%= link_to "#{list.name}", list_path(list.id) %></li>
         <% end %>
       </ul>
     </div>

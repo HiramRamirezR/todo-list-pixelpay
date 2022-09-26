@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col12">
+      <h1 class="text-center">Nueva Tarea</h1>
+      <%= link_to "Volver al inicio", home_path %>
+      <%= link_to "Ver todas las listas", index_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <%= form_with model: @newtask do |f| %>
+        <%= f.label "Nombre:" %>
+        <%= f.text_field :name %>
+        <%= f.submit "Crear Tarea" %>
+      <% end %>
+    </div>
+  </div>
+</div>

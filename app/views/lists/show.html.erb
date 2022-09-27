@@ -5,19 +5,25 @@
       <%= link_to "Editar nombre de lista", edit_list_path, class: "btn btn-dark" %>
       <%= link_to "Eliminar lista",
         list_path(@list), class: "btn btn-danger",
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro?"}
       %>
       <h2><%= @list.name %></h2>
 
       <p><strong>Tareas:</strong></p>
       <ul class="list-group">
         <% @list.tasks.each do |task| %>
-          <li class="list-group-item"><%= task.content %></li>
+          <li class="list-group-item">
+            <%= task.content %>
+            <%= link_to "Editar Tarea", edit_task_path(task), class: "btn btn-dark" %>
+            <%= link_to "Eliminar Tarea",
+              destroytask_path(task), class: "btn btn-danger",
+              data: {turbo_method: :delete, turbo_confirm: "¿Estás seguro?"}
+            %>
+          </li>
         <% end %>
       </ul>
 
       <%= link_to "Crear nueva tarea", new_list_task_path(@list), class: "btn btn-primary" %>
-      <%= link_to "Crear nueva tarea", new_list_task_path(@list) %>
     </div>
   </div>
 </div>

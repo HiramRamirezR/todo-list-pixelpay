@@ -1,5 +1,13 @@
 class TasksController < ApplicationController
-  before_action :set_list, only: %i[edit update destroy]
+  before_action :set_list, only: %i[destroy]
+
+  def index
+    @tasks = Task.all
+  end
+
+  def show
+    @task = Task.find(params[:id])
+  end
 
   def new
     @list = List.find(params[:list_id])
@@ -21,13 +29,13 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update(task_params)
-    redirect_to list_path(@list)
+    redirect_to list_path(@task.list)
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to list_path(@list), status: :see_other
+    redirect_to lists_path, status: :see_other
   end
 
   private
